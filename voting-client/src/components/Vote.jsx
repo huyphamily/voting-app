@@ -14,8 +14,8 @@ export default class extends React.Component {
   }
 
   render() {
-    return
-      (<div className="voting">
+    return (
+      <div className="voting">
         {this.getPair().map(entry =>
           <button key={entry}
                   disabled={this.isDisabled()}
@@ -26,7 +26,8 @@ export default class extends React.Component {
               null}
           </button>
         )}
-      </div>)
+      </div>
+    )
   }
 
 }
