@@ -16,7 +16,7 @@ export default class Results extends React.Component {
       return this.props.tally.get(entry);
     }
     return 0;
-  },
+  }
 
   render() {
     return (
@@ -24,9 +24,9 @@ export default class Results extends React.Component {
         {this.getPair().map(entry =>
           <div key={entry} className="entry">
             <h1>{entry}</h1>
-          </div>
-          <div className="voteCount">
-            {this.getVotes(entry)}
+            <div className="voteCount">
+              {this.getVotes(entry)}
+            </div>
           </div>
         )}
       </div>
