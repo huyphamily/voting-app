@@ -12,5 +12,4 @@ export default class extends React.Component {
       <div ref="winner">Winner is {this.props.winner}!</div>
     );
   }
-
 }
