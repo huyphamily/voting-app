@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-addons-test-utils';
 import {List} from 'immutable';
 import Voting from '../../src/components/Voting';
@@ -49,7 +49,7 @@ describe('Voting', () => {
     );
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
     expect(buttons.length).to.equal(0);
-    const winner = ReactDom.findDOMNode(component.refs.winner);
+    const winner = ReactDOM.findDOMNode(component.refs.winner);
     expect(winner).to.be.ok;
     expect(winner.textContent).to.contain('Trainspotting');
   });
@@ -64,7 +64,7 @@ describe('Voting', () => {
     expect(firstButton.textContent).to.equal('Trainspotting');
 
     pair[0] = 'Sunshine';
-    component = ReactDom.render(<Voting pair={pair} />, ReactDom.findDOMNode(component).parentNode);
+    component = ReactDOM.render(<Voting pair={pair} />, ReactDOM.findDOMNode(component).parentNode);
     firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.textContent).to.equal('Trainspotting');
   });

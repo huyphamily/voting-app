@@ -1,5 +1,5 @@
 import React from 'react'
-// import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-addons-test-utils';
 import {List, Map} from 'immutable';
 import {expect} from 'chai';
@@ -36,7 +36,7 @@ describe('Results', () => {
                tally={Map()}
                next={next} />
     );
-    Simulate.click(component.refs.next);
+    Simulate.click(ReactDOM.findDOMNode(component.refs.next));
 
     expect(nextInvoked).to.equal(true);
   });
