@@ -1,9 +1,10 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {connect} from 'react-redux';
 import Winner from './Winner';
 import Tally from './Tally';
 
-export default class Results extends React.Component {
+export class Results extends React.Component {
   constructor(props) {
     super(props);
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -13,7 +14,7 @@ export default class Results extends React.Component {
     return this.props.winner ?
       <Winner ref="winner" winner={this.props.winner} /> :
       <div className="results">
-        <Tally {...this.props} />
+        <Tally pair={this.props.pair} tally={this.props.tally} />
         <div className="management">
           <button ref="next"
                   className="next"
@@ -24,3 +25,13 @@ export default class Results extends React.Component {
       </div>;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    pair: state.getIn(['vote', 'pair']),
+    tally: state.getIn(['vote', 'tally']),
+    winner: state.get('winner')
+  };
+}
+
+export const ResultsContainer = connect(mapStateToProps)(Results);
