@@ -5,6 +5,7 @@ import {setEntries, next, vote} from '../src/core';
 
 describe('application logic', () => {
 
+
   describe('setEntries', () => {
 
     it('adds the entries to the state', () => {
@@ -17,6 +18,7 @@ describe('application logic', () => {
     });
 
   });
+
 
   describe('next', () => {
 
@@ -92,6 +94,7 @@ describe('application logic', () => {
 
   });
 
+
   describe('vote', () => {
 
       it('creates a tally for the voted entry', () => {
@@ -120,6 +123,24 @@ describe('application logic', () => {
           pair: List.of('Trainspotting', '28 Days Later'),
           tally: Map({
             'Trainspotting': 4,
+            '28 Days Later': 2
+          })
+        }));
+      });
+
+      it('ignores the vote if for an invalid entry', () => {
+        const state = Map({
+          pair: List.of('Trainspotting', '28 Days Later'),
+          tally: Map({
+            'Trainspotting': 3,
+            '28 Days Later': 2
+          })
+        });
+        const nextState = vote(state, 'Train');
+        expect(nextState).to.equal(Map({
+          pair: List.of('Trainspotting', '28 Days Later'),
+          tally: Map({
+            'Trainspotting': 3,
             '28 Days Later': 2
           })
         }));
