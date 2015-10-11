@@ -29,6 +29,7 @@ describe('application logic', () => {
       const nextState = next(state);
       expect(nextState).to.equal(Map({
         vote: Map({
+          round: 1,
           pair: List.of('Trainspotting', '28 Days Later')
         }),
         entries: List.of('Sunshine')
@@ -49,6 +50,7 @@ describe('application logic', () => {
       const nextState = next(state);
       expect(nextState).to.equal(Map({
         vote: Map({
+          round: 1,
           pair: List.of('Sunshine', 'Millions')
         }),
         entries: List.of('127 Hours', 'Trainspotting')
@@ -69,6 +71,7 @@ describe('application logic', () => {
       const nextState = next(state);
       expect(nextState).to.equal(Map({
         vote: Map({
+          round: 1,
           pair: List.of('Sunshine', 'Millions')
         }),
         entries: List.of('127 Hours', 'Trainspotting', '28 Days Later')
