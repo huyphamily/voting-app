@@ -14,7 +14,7 @@ export default class Voting extends React.Component {
       <div>
         {this.props.winner ?
         <Winner ref="winner" winner={this.props.winner} /> :
-        <Vote {...this.props} />}
+        <Vote pair={this.props.pair} tally={this.props.tally} />}
       </div>
     )
   }
